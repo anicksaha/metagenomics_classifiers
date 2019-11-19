@@ -100,7 +100,7 @@ def create_fasta_files(seq, seq_length, regions_info):
 
     write_fasta_file(whole_16s, 'whole_16s.fna')
 
-    # Fill region_1 and region_4 seq
+    # Fill region_2 and region_4 seq
     region_2_seq = {}
     region_4_seq = {}
     region_2 = regions_info[1]
