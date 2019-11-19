@@ -1,7 +1,6 @@
 import matplotlib.pyplot as plt
-import numpy as np
-from scipy.interpolate import UnivariateSpline
 import collections
+import utils_regions
 
 ##################################################################################
 
@@ -62,16 +61,18 @@ def get_smoothing(variabilities):
 
 ##################################################################################
 
-def create_regions_file():
-    regions_info = get_regions_info()
+def create_regions_file(variabilities):
+    ## EYE BALL values
+    regions_info = [ (0, 20), (150, 210), (400, 450), (530, 600), (670, 710),
+    (780, 830), (950, 1000), (1070, 1120), (1200, 1240), (1380, 1420)]
+
+    ## Driver function to get regions
+    #regions_info = utils_region.get_regions_info(variabilities)
+
+    ## Write the regions to a file
     with open('regions.txt', 'w') as f:
         for start, end in regions_info:
             f.write(str(start) + '\t' + str(end) + '\n')
-    return regions_info
-
-def get_regions_info():
-    regions_info = [ (0, 20), (150, 210), (400, 450), (530, 600), (670, 710),
-    (780, 830), (950, 1000), (1070, 1120), (1200, 1240), (1380, 1420)]
     return regions_info
 
 ##################################################################################
@@ -112,3 +113,20 @@ def create_fasta_files(seq, seq_length, regions_info):
 
     write_fasta_file(region_2_seq, 'region2.fna')
     write_fasta_file(region_4_seq, 'region4.fna')
+
+##################################################################################
+
+## Visualizations
+
+import matplotlib.pyplot as plt
+
+def generate_variability_plot(variabilities):
+    x = []
+    for i in range(len(variabilities)):
+        x.append(i)
+    y = variabilities
+
+    plt.plot(x, y, '-r', linewidth=1.5, markersize=9, color = 'r')
+    plt.xlabel("Index")
+    plt.ylabel("Fraction of Identity of Sequence")
+    plt.show()
