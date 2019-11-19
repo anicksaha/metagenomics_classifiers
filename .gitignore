@@ -1,0 +1,13 @@
+# OS generated files #
+######################
+.DS_Store
+.DS_Store?
+.Rhistory
+.Rhistory?
+
+# __pycache__ 
+__pycache__
+*.pyc
+
+# R
+*.Rapp.history
