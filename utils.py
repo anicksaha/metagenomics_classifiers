@@ -51,7 +51,7 @@ def create_variabilities_file(sequences, seq_length):
 ##################################################################################
 
 import statistics
-def get_smoothing(variabilities):
+def get_smoothening(variabilities):
     window_len = 15
     variabilities_2 = []
     N = len(variabilities)
