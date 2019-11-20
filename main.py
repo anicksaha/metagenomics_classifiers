@@ -9,7 +9,7 @@ def main(filepath):
     variabilities = utils.create_variabilities_file(sequences, seq_length)
 
     # Smoothening of variabilities
-    variabilities_2 = utils.get_smoothing(variabilities)
+    variabilities_2 = utils.get_smoothening(variabilities)
 
     # Genarate the variability plot using smoothened variabilities
     utils.generate_variability_plot(variabilities_2)

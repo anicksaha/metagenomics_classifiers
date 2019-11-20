@@ -122,11 +122,13 @@ import matplotlib.pyplot as plt
 
 def generate_variability_plot(variabilities):
     x = []
+    
     for i in range(len(variabilities)):
         x.append(i)
+
     y = variabilities
 
-    plt.plot(x, y, '-r', linewidth=1.5, markersize=9, color = 'g')
+    plt.plot(x, y, '-r', linewidth = 1.5, markersize = 9, color = 'g')
     plt.xlabel("Index")
     plt.ylabel("Fraction of Identity of Sequence")
     plt.show()
