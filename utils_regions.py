@@ -66,14 +66,13 @@ def merge_windows(increase_windows, decrease_windows, num_regions):
     
     for sequence_1 in range(len(decrease_windows[0])):
         start_val1 = decrease_windows[0][sequence_1][0]
-        minVal = 1e9
-        idx1 = -1
-        idx2 = -1
+        min_val = 1e9
+        idx1 = idx2 = -1
         L1 = L2 = []
         for sequence_2 in range(len(increase_windows[0])):
             end_val1 = increase_windows[0][sequence_2][-1]
-            if vis[sequence_2] == 0 and end_val1 - start_val1 + 1 < minVal and end_val1 >= start_val1:
-                minVal = end_val1 - start_val1 + 1
+            if vis[sequence_2] == 0 and end_val1 - start_val1 + 1 < min_val and end_val1 >= start_val1:
+                min_val = end_val1 - start_val1 + 1
                 idx1 = sequence_1
                 idx2 = sequence_2
                 start = start_val1
