@@ -64,10 +64,10 @@ def get_smoothing(variabilities):
 def create_regions_file(variabilities):
     ## EYE BALL values
     regions_info = [ (0, 20), (150, 210), (400, 450), (530, 600), (670, 710),
-    (780, 830), (950, 1000), (1070, 1120), (1200, 1240), (1380, 1420)]
+        (780, 830), (950, 1000), (1070, 1120), (1200, 1240), (1380, 1420)]
 
-    ## Driver function to get regions
-    #regions_info = utils_region.get_regions_info(variabilities)
+    ## Driver function to get regions | Heuristics
+    regions_info = utils_regions.get_regions_info(variabilities)
 
     ## Write the regions to a file
     with open('regions.txt', 'w') as f:
@@ -126,7 +126,7 @@ def generate_variability_plot(variabilities):
         x.append(i)
     y = variabilities
 
-    plt.plot(x, y, '-r', linewidth=1.5, markersize=9, color = 'r')
+    plt.plot(x, y, '-r', linewidth=1.5, markersize=9, color = 'g')
     plt.xlabel("Index")
     plt.ylabel("Fraction of Identity of Sequence")
     plt.show()
